@@ -2,7 +2,7 @@
 from src.item import Item
 
 test_item = Item("Холодильник", 25000, 15)
-over_ten_simbols = 'long_name_of_item'
+new_name = 'new_name'
 
 
 def test_calculate_total_price():
@@ -22,6 +22,12 @@ def test_string_to_number():
     new_value = Item.string_to_number(str_value)
     assert new_value == 10
 
-# def test_name_length():
-#     Item.name_length(over_ten_simbols)
-#     assert 'Длина наименования товара не может быть более 10-ти символов'
+
+def test_name_length():
+    Item.name_length(new_name)
+    assert 'new_name'
+
+
+def test_instantiate_from_csv():
+    Item.instantiate_from_csv()
+    assert len(Item.all) == 5

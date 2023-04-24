@@ -33,16 +33,12 @@ class Item:
         return total_price
 
     def apply_discount(self) -> None:
-        """
-        Применяет установленную скидку для конкретного товара.
-        """
+        """Применяет установленную скидку для конкретного товара"""
         self.price *= self.pay_rate
 
     @property
     def name(self):
-        """
-        Getter для param name
-        """
+        """Getter для param name"""
 
         return self.__name
 
