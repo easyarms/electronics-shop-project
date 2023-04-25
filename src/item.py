@@ -43,7 +43,7 @@ class Item:
         return self.__name
 
     @name.setter
-    def name_length(self, new_name: str):
+    def name(self, new_name: str):
         """
         Проверяет длину наименования товара через param name.
         Длина должна быть не более 10 символов.

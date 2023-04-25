@@ -1,4 +1,6 @@
 """Здесь надо написать тесты с использованием pytest для модуля item."""
+import pytest
+
 from src.item import Item
 
 test_item = Item("Холодильник", 25000, 15)
@@ -23,9 +25,11 @@ def test_string_to_number():
     assert new_value == 10
 
 
-def test_name_length():
-    Item.name_length(new_name)
-    assert 'new_name'
+def test_name():
+    test_item.name = 'new_name'
+    assert test_item.name == 'new_name'
+    with pytest.raises(Exception):
+        test_item.name = 'super_new_name'
 
 
 def test_instantiate_from_csv():
