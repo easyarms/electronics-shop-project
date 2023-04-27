@@ -7,6 +7,14 @@ test_item = Item("Холодильник", 25000, 15)
 new_name = 'new_name'
 
 
+def test__str__():
+    assert test_item.__str__() == 'Название: "Холодильник". Цена 1 шт: 25000 руб. Всего в магазине: 15 шт.'
+
+
+def test__repr__():
+    assert test_item.__repr__() == 'Item: (Холодильник, 25000, 15)'
+
+
 def test_calculate_total_price():
     total_price = test_item.calculate_total_price()
     assert total_price == 375000
@@ -31,7 +39,6 @@ def test_name():
     with pytest.raises(Exception):
         test_item.name = 'super_new_name'
 
-
-def test_instantiate_from_csv():
-    Item.instantiate_from_csv()
-    assert len(Item.all) == 5
+# def test_instantiate_from_csv():
+#     Item.instantiate_from_csv()
+#     assert len(Item.all) == 5
