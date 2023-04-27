@@ -39,6 +39,6 @@ def test_name():
     with pytest.raises(Exception):
         test_item.name = 'super_new_name'
 
-# def test_instantiate_from_csv():
-#     Item.instantiate_from_csv()
-#     assert len(Item.all) == 5
+def test_instantiate_from_csv():
+    Item.instantiate_from_csv()
+    assert len(Item.all) == 5
