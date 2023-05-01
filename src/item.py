@@ -24,10 +24,16 @@ class Item:
         Item.all.append(self)
 
     def __str__(self):
-        return f'Название: "{self.name}". Цена 1 шт: {self.price} руб. Всего в магазине: {self.quantity} шт.'
+        return f'{self.name}'
 
     def __repr__(self):
-        return f'{__class__.__name__}: ({self.__name}, {self.price}, {self.quantity})'
+        return f"{__class__.__name__}('{self.__name}', {self.price}, {self.quantity})"
+
+    def __add__(self, other):
+        if isinstance(other, self.__class__):
+            return self.quantity + other.quantity
+        else:
+            raise Exception
 
     def calculate_total_price(self) -> float:
         """

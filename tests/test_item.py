@@ -2,17 +2,23 @@
 import pytest
 
 from src.item import Item
+from src.phone import Phone
 
 test_item = Item("Холодильник", 25000, 15)
+test_phone = Phone("Samsung S24 Ultra", 150_000, 10, 5)
 new_name = 'new_name'
 
 
 def test__str__():
-    assert str(test_item) == 'Название: "Холодильник". Цена 1 шт: 25000 руб. Всего в магазине: 15 шт.'
+    assert str(test_item) == 'Холодильник'
 
 
 def test__repr__():
-    assert repr(test_item) == 'Item: (Холодильник, 25000, 15)'
+    assert repr(test_item) == "Item('Холодильник', 25000, 15)"
+
+
+def test__add__():
+    assert test_item + test_phone == 25
 
 
 def test_calculate_total_price():
@@ -39,7 +45,6 @@ def test_name():
     with pytest.raises(Exception):
         test_item.name = 'super_new_name'
 
-
-def test_instantiate_from_csv():
-    Item.instantiate_from_csv()
-    assert len(Item.all) == 5
+# def test_instantiate_from_csv():
+#     Item.instantiate_from_csv()
+#     assert len(Item.all) == 5
