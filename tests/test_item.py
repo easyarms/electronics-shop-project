@@ -6,7 +6,6 @@ from src.phone import Phone
 
 test_item = Item("Холодильник", 25000, 15)
 test_phone = Phone("Samsung S24 Ultra", 150_000, 10, 5)
-new_name = 'new_name'
 
 
 def test__str__():

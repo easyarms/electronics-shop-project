@@ -11,7 +11,7 @@ class Item:
 
     def __init__(self, name: str, price: float, quantity: int) -> None:
         """
-        Создание экземпляра класса item.
+        Создание экземпляра класса Item.
 
         :param name: Название товара.
         :param price: Цена за единицу товара.
@@ -30,7 +30,7 @@ class Item:
         return f"{__class__.__name__}('{self.__name}', {self.price}, {self.quantity})"
 
     def __add__(self, other):
-        if isinstance(other, self.__class__):
+        if issubclass(other.__class__, self.__class__):
             return self.quantity + other.quantity
         else:
             raise Exception
@@ -50,7 +50,7 @@ class Item:
 
     @property
     def name(self):
-        """Getter для param name"""
+        """Getter для param: name"""
 
         return self.__name
 
